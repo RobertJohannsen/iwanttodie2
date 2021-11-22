@@ -2763,7 +2763,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  headbobStartThreshold: 0.05
+  headbobStartThreshold: 0.3
   headbobYOffset: 1.6
   headBobWalkSpeed: 15.5
   headBobWalkAmount: 0.07
@@ -2789,6 +2789,10 @@ MonoBehaviour:
   speedFOV: 0
   camZoomed: 0
   airGround: 0
+  slowStacksStep: 0
+  slowStacksThres: 30
+  slowStacks: 0
+  maxSlowStacks: 16
   slowdownAfterDamage: 0
   slowDamageModifier: 0
   maxSlowDamageModifier: 0.95
@@ -2798,40 +2802,31 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.0000012408709
-      value: 1.0000441
-      inSlope: -0.14524372
-      outSlope: -0.14524372
+      time: -0.00000041397288
+      value: -0.0070881397
+      inSlope: 3.4927104
+      outSlope: 3.4927104
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.061619453
+      outWeight: 0.022287227
     - serializedVersion: 3
-      time: 0.45093226
-      value: 0.94885087
-      inSlope: -0.23734032
-      outSlope: -0.23734032
+      time: 0.356839
+      value: 0.6527173
+      inSlope: 0.7694683
+      outSlope: 0.7694683
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.12823234
+      outWeight: 0.058369294
     - serializedVersion: 3
-      time: 0.79086775
-      value: 0.7232769
-      inSlope: -0.94528335
-      outSlope: -0.94528335
+      time: 1
+      value: 1
+      inSlope: 0.77174467
+      outSlope: 0.77174467
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.035569724
-      outWeight: 0.21951196
-    - serializedVersion: 3
-      time: 1.0002928
-      value: -0.00029267184
-      inSlope: -5.191228
-      outSlope: -5.191228
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.088048875
+      inWeight: 0.07945731
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -2943,7 +2938,7 @@ MonoBehaviour:
   plyHPMax: 999999
   plyHP: 0
   currentScene: 0
-  isTenk: 0
+  isTenk: 1
   lockedHP: 0
 --- !u!4 &5862172566859617374
 Transform:
@@ -3313,14 +3308,10 @@ MonoBehaviour:
   head: {fileID: 6646176312448816736}
   body: {fileID: 6646176313174990505}
   zombieAgent: {fileID: 0}
+  overrideTarget: {x: 0, y: 0, z: 0}
   levelGeo:
     serializedVersion: 2
     m_Bits: 0
-  overrideTarget: {x: 0, y: 0, z: 0}
-  overrideGameObject: {fileID: 0}
-  lockInOverrideState: 0
-  overrideStep: 0
-  overrideDuration: 0
   isActive: 0
   inRange: 0
   showPath: 0
@@ -3341,7 +3332,6 @@ MonoBehaviour:
   Hp: 100
   MaxHp: 100
   radiusFromTarget: 0
-  routineOverride: 0
   zombieType: 1
   accelerationCurve:
     serializedVersion: 2
@@ -3436,7 +3426,7 @@ MonoBehaviour:
   attackStep: 0
   attackWindUp: 500
   attackRange: 2.5
-  damage: 10
+  damage: 1
   alertRadius: 0
   stunStep: 0
   stunDur: 750

@@ -150,6 +150,8 @@ public class moveCont : MonoBehaviour
     public bool airGround;
 
     [Header("Damage Stuff")]
+    public int slowStacksStep, slowStacksThres;
+    public int slowStacks, maxSlowStacks;
     public bool slowdownAfterDamage;
     public float slowDamageModifier; //modifier
     public float maxSlowDamageModifier; //base slow value
@@ -190,25 +192,31 @@ public class moveCont : MonoBehaviour
     private void FixedUpdate()
     {
         handleMovePly();
+        handleSlowStacks();
+    }
 
+    void handleSlowStacks()
+    {
+        if (slowStacks > 0)
+        {
+            slowStacksStep++;
+        }
+
+        if (slowStacksStep >= slowStacksThres)
+        {
+            slowStacksStep = 0;
+            slowStacks--;
+            slowStacks = Mathf.Clamp(slowStacks, 0, maxSlowStacks);
+        }
+
+        float slowStacksTime = (float)slowStacks / (float)maxSlowStacks;
+
+        slowDamageModifier = slowModifierCurve.Evaluate(slowStacksTime);
     }
 
     private void Update()
     {
-        if(slowdownAfterDamage)
-        {
-            slowModifierStep++;
-            slowModifierStep = Mathf.Clamp(slowModifierStep, 0, slowModifierMaxTime);
-            float test = slowModifierStep / slowModifierMaxTime;
-            slowDamageModifier = slowModifierCurve.Evaluate(test);
-            slowDamageModifier = Mathf.Clamp(slowDamageModifier, 0, maxSlowDamageModifier);
-        }
-
-        if(slowModifierStep == slowModifierMaxTime)
-        {
-            slowModifierStep = 0;
-            slowdownAfterDamage = false;
-        }
+      
 
         isMove = rb.velocity.magnitude > 0.07f ? true : false;
 
@@ -242,7 +250,9 @@ public class moveCont : MonoBehaviour
         stats.plyHP -= attackDamage;
         slowdownAfterDamage = true;
         slowModifierStep = 0;
-        CameraShaker.Instance.ShakeOnce(15f, 2f, .1f, 0.5f);
+        slowStacks++;
+        slowStacksStep = 0;
+      //  CameraShaker.Instance.ShakeOnce(15f, 2f, .1f, 0.5f);
 
 
     }
@@ -793,8 +803,8 @@ public class moveCont : MonoBehaviour
     private void OnCollisionStay(Collision other)
     {
         //Make sure we are only checking for walkable layers
-        int layer = other.gameObject.layer;
-        if (whatIsGround != (whatIsGround | (1 << layer))) return;
+      //  int layer = other.gameObject.layer;
+      //  if (whatIsGround != (whatIsGround | (1 << layer))) return;
 
         //Iterate through every collision in a physics update
         for (int i = 0; i < other.contactCount; i++)

@@ -35,9 +35,13 @@ public class weaponColliderBehaviour : MonoBehaviour
                 {
                     case "zombieHead":
                         other.gameObject.GetComponent<zombieReferenceComp>().zombie.doStun(stats.bashForce);
+                        core.moveCore.slowStacks -= 2;
+                        core.moveCore.slowStacks = Mathf.Clamp(core.moveCore.slowStacks, 0, core.moveCore.maxSlowStacks);
                         break;
                     case "zombieBody":
                         other.gameObject.GetComponent<zombieReferenceComp>().zombie.doStun(stats.bashForce);
+                        core.moveCore.slowStacks -= 2;
+                        core.moveCore.slowStacks = Mathf.Clamp(core.moveCore.slowStacks, 0, core.moveCore.maxSlowStacks);
                         break;
                 }
 
