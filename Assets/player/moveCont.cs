@@ -12,6 +12,7 @@ public class moveCont : MonoBehaviour
     [Header("Assignables")]
     //Assingables
     public Transform playerCam, camContainer;
+    public Transform bodyRoot;
     public Transform orientation;
     public plyStats stats;
 
@@ -45,6 +46,7 @@ public class moveCont : MonoBehaviour
     private Transform ply;
     public bool isMove;
     private GameObject groundCheck;
+    public bool damagable;
     
 
     //Rotation and look
@@ -157,6 +159,14 @@ public class moveCont : MonoBehaviour
     public float maxSlowDamageModifier; //base slow value
     public float slowModifierStep ,slowModifierMaxTime; //amount of time in slow
     public AnimationCurve slowModifierCurve; //curve
+    public float grappleSprintSpeed;
+    public int dashStep, dashTime;
+    public bool disableCounterMovement;
+    public int counterMoveStep, counterMoveThres;
+    public float dodgeSpeed;
+    public int refreshStep, refreshThres;
+    public string previousInput;
+    public bool freeLook;
 
 
     void Awake()
@@ -191,8 +201,35 @@ public class moveCont : MonoBehaviour
 
     private void FixedUpdate()
     {
+        refreshInputs();
+        disableCounter();
         handleMovePly();
         handleSlowStacks();
+    }
+
+    void refreshInputs()
+    {
+        refreshStep++;
+        
+        if(refreshStep >= refreshThres)
+        {
+            refreshStep = 0;
+            previousInput = "";
+        }
+    }
+
+    void disableCounter()
+    {
+        if(disableCounterMovement)
+        {
+            counterMoveStep++;
+        }
+
+        if(counterMoveStep >= counterMoveThres)
+        {
+            counterMoveStep = 0;
+            disableCounterMovement = false;
+        }
     }
 
     void handleSlowStacks()
@@ -247,12 +284,16 @@ public class moveCont : MonoBehaviour
 
     public void takeDamage( int attackDamage)
     {
-        stats.plyHP -= attackDamage;
-        slowdownAfterDamage = true;
-        slowModifierStep = 0;
-        slowStacks++;
-        slowStacksStep = 0;
-      //  CameraShaker.Instance.ShakeOnce(15f, 2f, .1f, 0.5f);
+        if(damagable)
+        {
+            
+            stats.plyHP -= attackDamage;
+            slowdownAfterDamage = true;
+            slowModifierStep = 0;
+            slowStacks++;
+            slowStacksStep = 0;
+        }
+        CameraShaker.Instance.ShakeOnce(15f, 2f, .1f, 0.5f);
 
 
     }
@@ -283,9 +324,30 @@ public class moveCont : MonoBehaviour
             DisableCursor();
         if (Input.anyKeyDown)
             EnableCursor();
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            breakGrapple();
 
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (previousInput == "A")
+            {
+                dodgeHorizontal();
+            }
+            previousInput = "A";
+        }  
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (previousInput == "D")
+            {
+                dodgeHorizontal();
+            }
+            previousInput = "D";
+        }
 
-
+        if (Input.GetKeyDown(KeyCode.G))
+            freeLook = true;
+        if (Input.GetKeyUp(KeyCode.G))
+            freeLook = false;
 
 
         /// switch between raw input and interpolated input
@@ -293,8 +355,7 @@ public class moveCont : MonoBehaviour
         /// raw / new scale = percentage 
         /// percentage max = 1 
         /// 
-
-        if(!useRaw) 
+        if (!useRaw) 
         {
             xScaledInput = Mathf.Clamp(xInt / xInputIntThreshold, -1, 1);
             yScaledInput = Mathf.Clamp(yInt / yInputIntThreshold, -1, 1);
@@ -364,7 +425,30 @@ public class moveCont : MonoBehaviour
         Cursor.visible = true;
     }
     #endregion
+    void dodgeHorizontal()
+    {
+        float prevInput = -1;
+        if (previousInput == "A")
+            prevInput = -1;
+        if (previousInput == "D")
+            prevInput = 1;
 
+        disableCounterMovement = true;
+        rb.AddForce(orientation.transform.right * prevInput * dodgeSpeed);
+    }
+    void breakGrapple()
+    {
+        if(Random.Range(0 , maxSlowStacks)+1 <= slowStacks)
+        {
+            wepCore.discardCurrentWeapon();
+            //lose weapon / zombie shake
+        }
+        disableCounterMovement = true;
+        slideOrientation = orientation.transform.forward;
+        rb.AddForce(slideOrientation * grappleSprintSpeed);
+        Debug.Log("did thing");
+        slowStacks = 0;
+    }
     void handleHeadbob()
     {
         if(canHeadbob)
@@ -601,8 +685,9 @@ public class moveCont : MonoBehaviour
 
 
         //Counteract sliding and sloppy movement
-        if ((grounded && !wasSliding))
+        if ((grounded) && !disableCounterMovement)
         {
+
             CounterMovement(x, y, mag);
         }
 
@@ -656,6 +741,12 @@ public class moveCont : MonoBehaviour
         if (grounded && crouching) multiplierV = 0.25f;
         multiplier -= slowDamageModifier;
         multiplier = Mathf.Clamp(multiplier, 0.01f, 100);
+        if (y < 0)
+        {
+            Debug.Log(y);
+            multiplier = multiplier / 2f;
+        }
+        
 
         //Apply forces to move player
         rb.AddForce(orientation.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
@@ -739,7 +830,13 @@ public class moveCont : MonoBehaviour
 
         //Perform the rotations
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
-        orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+        
+        if (!freeLook)
+        {
+            bodyRoot.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
+            orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+        }
+       
     }
 
     private void CounterMovement(float x, float y, Vector2 mag)

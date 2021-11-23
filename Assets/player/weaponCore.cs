@@ -100,6 +100,11 @@ public class weaponCore : MonoBehaviour
 
     private float currentHitDistance;
 
+    [Header("bash stuff")]
+    public int  bashScore , bashThres; //bashscore is the value added when you bash , bashThres , if the bashscore is over bashthres then allow bash but enter bash cooldown slow
+    ///bashscore will gradually reduce overtime , if the bashscore is over the thres then bash cooldown is 
+
+
     
 
 

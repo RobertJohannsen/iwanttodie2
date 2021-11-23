@@ -504,7 +504,7 @@ MonoBehaviour:
   shotCount: 8
   baseAimConeAccuracy: 3
   moveAimConeAccuracy: 8.5
-  ejectFrames: 300
+  ejectFrames: 95
   totalCycleTime: 350
   maxShotDistance: 100
   magCapacity: 7
