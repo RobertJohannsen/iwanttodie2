@@ -101,7 +101,12 @@ public class weaponCore : MonoBehaviour
     private float currentHitDistance;
 
     [Header("bash stuff")]
-    public int  bashScore , bashThres; //bashscore is the value added when you bash , bashThres , if the bashscore is over bashthres then allow bash but enter bash cooldown slow
+    public int  bashScore , bashThres , bashMax;
+    public int reduceBashCount , reduceBashThres;
+    public int bashCost;
+    public bool bashOnCooldown;
+    public int bashCooldownCount, bashCooldownThres;
+    //bashscore is the value added when you bash , bashThres , if the bashscore is over bashthres then allow bash but enter bash cooldown slow
     ///bashscore will gradually reduce overtime , if the bashscore is over the thres then bash cooldown is 
 
 
@@ -242,11 +247,40 @@ public class weaponCore : MonoBehaviour
 
     public void FixedUpdate()
     {
+        reduceBash();
         handleRecoil();
         doTenk();
         doZoomies();
         gunBash();
         handleReloadType();
+    }
+
+    void reduceBash()
+    {
+        if (!bashOnCooldown)
+        {
+            if (bashScore > 0)
+            {
+                reduceBashCount++;
+
+                if (reduceBashCount >= reduceBashThres)
+                {
+                    reduceBashCount = 0;
+                    bashScore--;
+                    bashScore = Mathf.Clamp(bashScore, 0, bashMax);
+                }
+            }
+        }
+        else
+        {
+            bashCooldownCount++;
+
+            if (bashCooldownCount >= bashCooldownThres)
+            {
+                bashCooldownCount = 0;
+                bashOnCooldown = false;
+            }
+        }
     }
     public void handleLeftClickUp()
     {
@@ -383,15 +417,28 @@ public class weaponCore : MonoBehaviour
     {
         interactHit.collider.gameObject.GetComponentInParent<Animator>().enabled = true;
         plyInv.InventoryReferenceSlot[plyInv.selectedSlot] = interactHit.collider.gameObject.GetComponentInParent<weaponStats>();
-        interactHit.collider.gameObject.transform.parent.position = new Vector3(9999999, 999999, 99999);
+        if(interactHit.collider.gameObject)
+        {
+            interactHit.collider.gameObject.transform.parent.position = new Vector3(9999999, 999999, 99999);
+        }
+       
 
         plyInv.weaponRoot.transform.GetChild(1).GetComponent<Animator>().enabled = true;
         plyInv.scrollUpdateDetected();
     }
     public void bash()
     {
-        gunAnimationCont.callBashAnimation();
-        startBash = true;
+        if(!bashOnCooldown)
+        {
+            bashScore += bashCost;
+            bashScore = Mathf.Clamp(bashScore, 0, bashMax);
+            gunAnimationCont.callBashAnimation();
+            startBash = true;
+        }
+        if (bashScore > bashThres)
+        {
+            bashOnCooldown = true;
+        }
     }
 
     #region core
@@ -632,6 +679,7 @@ public class weaponCore : MonoBehaviour
                     }
                     else
                     {
+
                         fireWeapon();
                         //fire actual bullet
                         shootReady = false;
@@ -647,6 +695,7 @@ public class weaponCore : MonoBehaviour
     }
     public void fireWeapon()
     {
+        moveCore.fireShake();
         reloading = false;
         currentAmmo--;
         plyInv.callFindAmmoReference();

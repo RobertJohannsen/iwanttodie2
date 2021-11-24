@@ -172,11 +172,12 @@ public class plyInventory : MonoBehaviour
         core.healAmount = InventoryReferenceSlot[selectedSlot].healAmount;
         core.speedBuff = InventoryReferenceSlot[selectedSlot].speedBuff ;
         core.timeToConsumue = InventoryReferenceSlot[selectedSlot].timeToConsumue;
+        core.bashCost = InventoryReferenceSlot[selectedSlot].bashCost;
 
 
 
 
-}
+    }
 void AssignWeaponAnimations()
     {
         if(!InventoryReferenceSlot[selectedSlot].weaponAnimator)

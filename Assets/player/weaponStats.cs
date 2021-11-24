@@ -58,6 +58,9 @@ public class weaponStats : MonoBehaviour
     public int meleeDuration;
     public float meleeDistance, meleeForce;
 
+    [Header("Bash")]
+    public int bashCost;
+
     [Header("Consume")]
     public int healAmount;
     public float speedBuff;

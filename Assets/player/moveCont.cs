@@ -29,7 +29,7 @@ public class moveCont : MonoBehaviour
 
     //basics
 
-    public enum moveState { none, planar, vault ,slide };
+    public enum moveState { none, planar, vault, slide };
     public moveState state;
 
     [Header("Functional Options")]
@@ -38,7 +38,7 @@ public class moveCont : MonoBehaviour
     public bool useRaw;
 
     [Header("Basics")]
-    
+
     public Vector3 downVelocity;
     private float gConst = -9.8f;
     private float gravMulti = 100;
@@ -47,7 +47,8 @@ public class moveCont : MonoBehaviour
     public bool isMove;
     private GameObject groundCheck;
     public bool damagable;
-    
+    public bool enableSprint;
+
 
     //Rotation and look
 
@@ -60,7 +61,7 @@ public class moveCont : MonoBehaviour
     [Header("movement stuff")]
     //Movement
     public float moveSpeed;
-    public float speedBase ,scaledSpeed;
+    public float speedBase, scaledSpeed;
     public float maxSpeed;
     public float speedModifier;
     public float speedCap;
@@ -102,7 +103,7 @@ public class moveCont : MonoBehaviour
     public float xRaw, yRaw; //raw input
     public float xInt, yInt; // interpolated input
     public float x, y; //edited input
-    public float xInputIntThreshold ,yInputIntThreshold;
+    public float xInputIntThreshold, yInputIntThreshold;
     private float xPrevious, yPrevious;
     public float xScaledInput, yScaledInput;
 
@@ -157,7 +158,7 @@ public class moveCont : MonoBehaviour
     public bool slowdownAfterDamage;
     public float slowDamageModifier; //modifier
     public float maxSlowDamageModifier; //base slow value
-    public float slowModifierStep ,slowModifierMaxTime; //amount of time in slow
+    public float slowModifierStep, slowModifierMaxTime; //amount of time in slow
     public AnimationCurve slowModifierCurve; //curve
     public float grappleSprintSpeed;
     public int dashStep, dashTime;
@@ -168,9 +169,28 @@ public class moveCont : MonoBehaviour
     public string previousInput;
     public bool freeLook;
 
+    [Header("Dodge stuff")]
+    public bool brokeDodgeCooldown;
+    public int brokeDodgeStep, brokeDodgeThres;
+
+    [Header("Dash stuff")]
+    public bool breakGrappleCooldown;
+    public int breakGrappleStep, breakGrappleThres;
+
+    [Header("Stamina Stuff")]
+    public float currentStamina, maxStamina;
+    public float staminaRecovValue;
+    public AnimationCurve staminaCurve;
+    public bool stamOnCooldown;
+    public int stamCooldownCount, stamCooldownThres;
+    public float staminaDodgeCost;
+    public bool panicSprint;
+    public float panicSprintMulti,panicSprintCost;
+
 
     void Awake()
     {
+        currentStamina = maxStamina;
         maxHP = 100;
         HP = 100;
         rb = GetComponent<Rigidbody>();
@@ -201,12 +221,62 @@ public class moveCont : MonoBehaviour
 
     private void FixedUpdate()
     {
+        handleStamina();
         refreshInputs();
         disableCounter();
         handleMovePly();
         handleSlowStacks();
     }
 
+    void handleStamina()
+    {
+        if (stamOnCooldown)
+        {
+            stamCooldownCount++;
+
+            if (stamCooldownCount >= stamCooldownThres)
+            {
+                stamCooldownCount = 0;
+                stamOnCooldown = false;
+            }
+        }
+        else
+        {
+            if (!brokeDodgeCooldown)
+            {
+                staminaRecovValue = staminaCurve.Evaluate(currentStamina / maxStamina);
+                currentStamina += staminaRecovValue;
+                currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+            }
+            else
+            {
+                brokeDodgeStep++;
+
+                if (brokeDodgeStep >= brokeDodgeThres)
+                {
+                    brokeDodgeStep = 0;
+                    brokeDodgeCooldown = false;
+                    stamOnCooldown = true;
+                }
+            }
+
+        }
+
+        if(currentStamina == 0)
+        {
+            panicSprint = false;
+        }
+
+        if (breakGrappleCooldown)
+        {
+            breakGrappleStep++;
+            if (breakGrappleStep >= breakGrappleThres)
+            {
+                breakGrappleStep = 0;
+                breakGrappleCooldown = false;
+            }
+        }
+    }
     void refreshInputs()
     {
         refreshStep++;
@@ -297,7 +367,12 @@ public class moveCont : MonoBehaviour
 
 
     }
- 
+
+    public void fireShake()
+    {
+        CameraShaker.Instance.ShakeOnce(3f, 1f, .1f, 0.5f);
+    }
+
     private void MyInput()
     {
         xRaw = Input.GetAxisRaw("Horizontal");
@@ -326,6 +401,8 @@ public class moveCont : MonoBehaviour
             EnableCursor();
         if (Input.GetKeyDown(KeyCode.LeftShift))
             breakGrapple();
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            panicSprint = false ;
 
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -433,21 +510,49 @@ public class moveCont : MonoBehaviour
         if (previousInput == "D")
             prevInput = 1;
 
-        disableCounterMovement = true;
-        rb.AddForce(orientation.transform.right * prevInput * dodgeSpeed);
+        if (currentStamina != 0)
+        {
+            deductStamina(staminaDodgeCost);
+            disableCounterMovement = true;
+            rb.AddForce(orientation.transform.right * prevInput * dodgeSpeed);
+        }
+        else
+        {
+            if(!brokeDodgeCooldown)
+            {
+                rb.AddForce(orientation.transform.right * prevInput * dodgeSpeed / 2);
+                disableCounterMovement = true;
+                brokeDodgeCooldown = true;
+            }
+           
+        }
+    }
+
+    void deductStamina(float cost)
+    {
+        stamOnCooldown = true;
+        currentStamina -= cost;
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
     }
     void breakGrapple()
     {
-        if(Random.Range(0 , maxSlowStacks)+1 <= slowStacks)
+        if(currentStamina > 0 && !breakGrappleCooldown)
         {
-            wepCore.discardCurrentWeapon();
-            //lose weapon / zombie shake
+            deductStamina(70);
+            if (Random.Range(0, maxSlowStacks) + 1 <= slowStacks)
+            {
+                wepCore.discardCurrentWeapon();
+                //lose weapon / zombie shake
+            }
+            disableCounterMovement = true;
+            slideOrientation = orientation.transform.forward;
+            rb.AddForce(slideOrientation * grappleSprintSpeed);
+            Debug.Log("did thing");
+            slowStacks = 0;
+            breakGrappleCooldown = true;
+            panicSprint = true;
         }
-        disableCounterMovement = true;
-        slideOrientation = orientation.transform.forward;
-        rb.AddForce(slideOrientation * grappleSprintSpeed);
-        Debug.Log("did thing");
-        slowStacks = 0;
+       
     }
     void handleHeadbob()
     {
@@ -671,7 +776,7 @@ public class moveCont : MonoBehaviour
         }
 
         //Extra gravity
-        if(!grounded)
+        if (!grounded)
         {
             rb.AddForce(Vector3.down * Time.deltaTime * 1000);
 
@@ -728,7 +833,7 @@ public class moveCont : MonoBehaviour
         /// instead it goes to speedFloor immediately
         /// 
 
-        if(rb.velocity.magnitude < speedFloor)
+        if (rb.velocity.magnitude < speedFloor)
         {
             moveSpeed = scaledSpeed;
         }
@@ -741,9 +846,14 @@ public class moveCont : MonoBehaviour
         if (grounded && crouching) multiplierV = 0.25f;
         multiplier -= slowDamageModifier;
         multiplier = Mathf.Clamp(multiplier, 0.01f, 100);
+        if (panicSprint && currentStamina > 0)
+        {
+            deductStamina(panicSprintCost);
+            multiplier = multiplier * panicSprintMulti;
+            
+        }
         if (y < 0)
         {
-            Debug.Log(y);
             multiplier = multiplier / 2f;
         }
         

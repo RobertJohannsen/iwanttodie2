@@ -496,6 +496,7 @@ MonoBehaviour:
   meleeDuration: 0
   meleeDistance: 0
   meleeForce: 0
+  bashCost: 2
   healAmount: 0
   speedBuff: 0
   timeToConsumue: 0
