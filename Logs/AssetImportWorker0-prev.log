@@ -1,0 +1,863 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.15f2 (6cf78cb77498) revision 7141260'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Enterprise; OS build 19043.1348; Version 2009; 64bit' Language: 'en' Physical Memory: 32692 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+E:\Unity2\2020.3.15f2\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/redud/Desktop/git/zombieGame/helpSimpsAreChasing
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+64776
+Successfully changed project path to: C:/Users/redud/Desktop/git/zombieGame/helpSimpsAreChasing
+C:/Users/redud/Desktop/git/zombieGame/helpSimpsAreChasing
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 50.31 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.15f2 (6cf78cb77498)
+[Subsystems] Discovering subsystems at path E:/Unity2/2020.3.15f2/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/redud/Desktop/git/zombieGame/helpSimpsAreChasing/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2070 SUPER (ID=0x1e84)
+    Vendor:   
+    VRAM:     8011 MB
+    Driver:   30.0.14.7168
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Leviant's Shaders/ScreenSpace Ubershader v2.8': fallback shader 'Particles/Multiply' not found
+Shader 'Okano/NoeNoe/Opaque Emissive Sparkle': fallback shader 'NoeNoe/NoeNoe Overlay Shader (Opaque)' not found
+Shader 'Okano/NoeNoe/Opaque Unlit Stencil': fallback shader 'Okano/NoeNoe Opaque Rework' not found
+Initialize mono
+Mono path[0] = 'E:/Unity2/2020.3.15f2/Editor/Data/Managed'
+Mono path[1] = 'E:/Unity2/2020.3.15f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'E:/Unity2/2020.3.15f2/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56380
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: E:/Unity2/2020.3.15f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.000873 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 52.77 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.973 seconds
+Domain Reload Profiling:
+	ReloadAssembly (973ms)
+		BeginReloadAssembly (34ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (297ms)
+			LoadAssemblies (34ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (92ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (19ms)
+			SetupLoadedEditorAssemblies (139ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (53ms)
+				BeforeProcessingInitializeOnLoad (10ms)
+				ProcessInitializeOnLoadAttributes (55ms)
+				ProcessInitializeOnLoadMethodAttributes (19ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003846 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 49.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.896 seconds
+Domain Reload Profiling:
+	ReloadAssembly (897ms)
+		BeginReloadAssembly (90ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (770ms)
+			LoadAssemblies (63ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (199ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (398ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (2ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (50ms)
+				BeforeProcessingInitializeOnLoad (98ms)
+				ProcessInitializeOnLoadAttributes (243ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Okano/NoeNoe/Opaque Unlit Stencil': fallback shader 'Okano/NoeNoe Opaque Rework' not found
+Shader 'Okano/NoeNoe/Opaque Emissive Sparkle': fallback shader 'NoeNoe/NoeNoe Overlay Shader (Opaque)' not found
+Shader 'Leviant's Shaders/ScreenSpace Ubershader v2.8': fallback shader 'Particles/Multiply' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3248 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 177.6 MB.
+System memory in use after: 176.4 MB.
+
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 3690.
+Total: 3.334100 ms (FindLiveObjects: 0.346900 ms CreateObjectMapping: 0.137100 ms MarkObjects: 2.176200 ms  DeleteObjects: 0.673100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/scripts/New Material 5.mat
+  artifactKey: Guid(03074641bf6f62e49b997896fb617f76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/scripts/New Material 5.mat using Guid(03074641bf6f62e49b997896fb617f76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fabadda8380de20d61da0bfda31eb6a5') in 0.071629 seconds 
+  Import took 0.076312 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.929524 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Graffiti Wall/Accomulated Color 1.renderTexture
+  artifactKey: Guid(1624902a93a4f6f47b6e9d7a13646d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Graffiti Wall/Accomulated Color 1.renderTexture using Guid(1624902a93a4f6f47b6e9d7a13646d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c99bf74995e2a2116e141505bbbed11d') in 0.130971 seconds 
+  Import took 0.136005 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000510 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Avatar Shaders/Ramps/Black White.png
+  artifactKey: Guid(2881cdcf94eb8e04e890b5bb60db037b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Avatar Shaders/Ramps/Black White.png using Guid(2881cdcf94eb8e04e890b5bb60db037b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdc48d17caff19634245060251828f81') in 0.044222 seconds 
+  Import took 0.048624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000136 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Avatar Shaders/Ramps/Black Gray White.png
+  artifactKey: Guid(a790e718950e24d4cb7c8d8232625eca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Avatar Shaders/Ramps/Black Gray White.png using Guid(a790e718950e24d4cb7c8d8232625eca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7db6769130f811d6b3ff9d5935daf2ae') in 0.009889 seconds 
+  Import took 0.014363 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000130 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Graffiti Wall/Accomulated Color 2.renderTexture
+  artifactKey: Guid(20a62ed3113e97a438b069ea0e4de43a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Graffiti Wall/Accomulated Color 2.renderTexture using Guid(20a62ed3113e97a438b069ea0e4de43a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdb346e183fa422490aa26981d91151b') in 0.011440 seconds 
+  Import took 0.016030 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.619441 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Depth Mirror/blue noise.png
+  artifactKey: Guid(652f15dc3f50ce449a423c9b67a59eed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Depth Mirror/blue noise.png using Guid(652f15dc3f50ce449a423c9b67a59eed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ebcd72fb8f267add4c2af7e811e3973') in 0.011935 seconds 
+  Import took 0.017224 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.046751 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Neitri Clock/V3/clock.png
+  artifactKey: Guid(d0abd5de291b67646b2ac2ecc11f87ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Neitri Clock/V3/clock.png using Guid(d0abd5de291b67646b2ac2ecc11f87ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cc357eac7849b94b74dca23f3a4ab95') in 0.010509 seconds 
+  Import took 0.015156 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Neitri Clock/V2/clock.png
+  artifactKey: Guid(3f7b244eaf3087d44a42bff647847f6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Neitri Clock/V2/clock.png using Guid(3f7b244eaf3087d44a42bff647847f6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1a0017e829b7ad8a031495f85427925') in 0.006982 seconds 
+  Import took 0.010867 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Neitri Clock/V4/Clock A.png
+  artifactKey: Guid(5dcf40250fc13e04b91e0973afc7ecec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Neitri Clock/V4/Clock A.png using Guid(5dcf40250fc13e04b91e0973afc7ecec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '080888161f387ad36c5cbb1aeff7f310') in 0.021093 seconds 
+  Import took 0.025452 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Neitri Clock/V1/clock.png
+  artifactKey: Guid(fa27500f05b62ca48a2add7dcfaaacc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Neitri Clock/V1/clock.png using Guid(fa27500f05b62ca48a2add7dcfaaacc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74dcc1046745218fd7bc95cffe6ec9e4') in 0.007643 seconds 
+  Import took 0.011977 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Neitri Clock/V4/Clock B.png
+  artifactKey: Guid(1c341ba6c0e554f4eb4e71653bde4cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Neitri Clock/V4/Clock B.png using Guid(1c341ba6c0e554f4eb4e71653bde4cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61901a50e7fc09612b2de73eb2bb2a28') in 0.013782 seconds 
+  Import took 0.018147 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003430 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.94 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.842 seconds
+Domain Reload Profiling:
+	ReloadAssembly (842ms)
+		BeginReloadAssembly (90ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (712ms)
+			LoadAssemblies (65ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (208ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (345ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (100ms)
+				ProcessInitializeOnLoadAttributes (236ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Okano/NoeNoe/Opaque Unlit Stencil': fallback shader 'Okano/NoeNoe Opaque Rework' not found
+Shader 'Okano/NoeNoe/Opaque Emissive Sparkle': fallback shader 'NoeNoe/NoeNoe Overlay Shader (Opaque)' not found
+Shader 'Leviant's Shaders/ScreenSpace Ubershader v2.8': fallback shader 'Particles/Multiply' not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3037 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.4 MB.
+System memory in use after: 159.3 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 3745.
+Total: 4.012300 ms (FindLiveObjects: 0.387900 ms CreateObjectMapping: 0.146300 ms MarkObjects: 2.569200 ms  DeleteObjects: 0.907700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 509.147505 seconds.
+  path: Assets/Tomnautical/Station 56/Materials/blackPaint.mat
+  artifactKey: Guid(90356672cb4cc544ab35b510ada58dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tomnautical/Station 56/Materials/blackPaint.mat using Guid(90356672cb4cc544ab35b510ada58dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd53dac83e317cb85851831ef50f0b267') in 0.068160 seconds 
+  Import took 0.073768 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Mochie/DepthEnabler.prefab
+  artifactKey: Guid(9e11a67b81ddca14c98289e0eaee8e02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mochie/DepthEnabler.prefab using Guid(9e11a67b81ddca14c98289e0eaee8e02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24022543248accd408ff7aaa0e727e49') in 0.012212 seconds 
+  Import took 0.016723 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Tomnautical/Station 56/Materials/blackPaint.mat
+  artifactKey: Guid(90356672cb4cc544ab35b510ada58dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tomnautical/Station 56/Materials/blackPaint.mat using Guid(90356672cb4cc544ab35b510ada58dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd53dac83e317cb85851831ef50f0b267') in 0.041414 seconds 
+  Import took 0.046247 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000144 seconds.
+  path: Assets/NoeNoe Shaders/Examples/Station 56/Hologram/Materials/blackPaint.mat
+  artifactKey: Guid(6481f7e9fe13a1e48be2c12e1bed83f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NoeNoe Shaders/Examples/Station 56/Hologram/Materials/blackPaint.mat using Guid(6481f7e9fe13a1e48be2c12e1bed83f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3418161c2acfa0bc23ac0d3549f5e847') in 0.029571 seconds 
+  Import took 0.033768 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Example Scene/Blue Opaque.mat
+  artifactKey: Guid(9cabb2e497d4ad14c87ef99dd424b3ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Example Scene/Blue Opaque.mat using Guid(9cabb2e497d4ad14c87ef99dd424b3ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e3f11bc66476c3114171cdbc09cdd77') in 0.084248 seconds 
+  Import took 0.088451 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000144 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Enable Camera Depth Texture.prefab
+  artifactKey: Guid(debc5cfb91a5fdc459300176644b01eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Enable Camera Depth Texture.prefab using Guid(debc5cfb91a5fdc459300176644b01eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52782925170367b411016b199124493e') in 0.006347 seconds 
+  Import took 0.010939 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/NoeNoe Shaders/Examples/Station 56/Rough Metal Starfield/Materials/blackPaint.mat
+  artifactKey: Guid(825789268a769ea4087fe8510713f92d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NoeNoe Shaders/Examples/Station 56/Rough Metal Starfield/Materials/blackPaint.mat using Guid(825789268a769ea4087fe8510713f92d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e5d2a8eaabab2a3e705e073be99844c') in 0.227919 seconds 
+  Import took 0.232155 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/NoeNoe Shaders/Examples/Station 56/Starry Cutout/Materials/blackPaint.mat
+  artifactKey: Guid(501e6eb6400e3204bbe8270e8e0fc4bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NoeNoe Shaders/Examples/Station 56/Starry Cutout/Materials/blackPaint.mat using Guid(501e6eb6400e3204bbe8270e8e0fc4bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd140eb085c62ba5798e32d26263d6662') in 0.174576 seconds 
+  Import took 0.179367 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/NoeNoe Shaders/Examples/Station 56/Front-Lit Toon/Materials/blackPaint.mat
+  artifactKey: Guid(5423c2a180b557141a4aacd4a25f2dbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NoeNoe Shaders/Examples/Station 56/Front-Lit Toon/Materials/blackPaint.mat using Guid(5423c2a180b557141a4aacd4a25f2dbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '298882e1f5b9e3cd48f0c54fbbde5e73') in 0.026507 seconds 
+  Import took 0.030949 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/Blood/bloodSplat1 1.mat
+  artifactKey: Guid(cbb860d4392ccf84583f56618e250fed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodSplat1 1.mat using Guid(cbb860d4392ccf84583f56618e250fed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b96baac9b91d676ccb9e5091f2bf3533') in 0.028972 seconds 
+  Import took 0.033054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000147 seconds.
+  path: Assets/NoeNoe Shaders/Examples/Station 56/Unmoving Rainbow/Materials/blackPaint.mat
+  artifactKey: Guid(a637a0c262f3d2e4ba89f1d67c93b075) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NoeNoe Shaders/Examples/Station 56/Unmoving Rainbow/Materials/blackPaint.mat using Guid(a637a0c262f3d2e4ba89f1d67c93b075) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f655ff2105b5dff2859ee6b8dc01c4db') in 0.171349 seconds 
+  Import took 0.175729 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Neitri Clock/V4/Materials/A/clock blue.mat
+  artifactKey: Guid(0def053d9a5bb1140b90f18c58c19000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Neitri Clock/V4/Materials/A/clock blue.mat using Guid(0def053d9a5bb1140b90f18c58c19000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '694ea3893a53eb8cb731abaeb3525156') in 0.014644 seconds 
+  Import took 0.019256 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Assets/Scenes/VLevel/LevelPrefabs/DoubleDoor.prefab
+  artifactKey: Guid(bec3e2ec8310381479ced2908aa52f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/VLevel/LevelPrefabs/DoubleDoor.prefab using Guid(bec3e2ec8310381479ced2908aa52f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '714427a2a38cc4428342444ecb6f5ae8') in 0.012101 seconds 
+  Import took 0.016780 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000147 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Neitri Clock/V4/Materials/B/clock blue.mat
+  artifactKey: Guid(185e7bea346a3c44c91c1cbaa20bdb19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Neitri Clock/V4/Materials/B/clock blue.mat using Guid(185e7bea346a3c44c91c1cbaa20bdb19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f46f56e8480ebadddc65685492c50752') in 0.015735 seconds 
+  Import took 0.020002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000131 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Graffiti Wall/Spray Cans/Normal/Body Blue.mat
+  artifactKey: Guid(db43562ff4291774bba4cbb4067f3aa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Graffiti Wall/Spray Cans/Normal/Body Blue.mat using Guid(db43562ff4291774bba4cbb4067f3aa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '212c90eb8e6fc0977a1e62d1b9637f5f') in 0.022843 seconds 
+  Import took 0.026842 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/Neitri-Unity-Shaders-master/Neitri Clock/V3/Materials/clock black.mat
+  artifactKey: Guid(2d45c350d8392f2498337e96648adebd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Neitri-Unity-Shaders-master/Neitri Clock/V3/Materials/clock black.mat using Guid(2d45c350d8392f2498337e96648adebd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fdba306c526a6a7448e252b2de89dee') in 0.011572 seconds 
+  Import took 0.016139 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004029 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.872 seconds
+Domain Reload Profiling:
+	ReloadAssembly (872ms)
+		BeginReloadAssembly (92ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (744ms)
+			LoadAssemblies (63ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (188ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (26ms)
+			SetupLoadedEditorAssemblies (407ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (99ms)
+				ProcessInitializeOnLoadAttributes (300ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Okano/NoeNoe/Opaque Unlit Stencil': fallback shader 'Okano/NoeNoe Opaque Rework' not found
+Shader 'Okano/NoeNoe/Opaque Emissive Sparkle': fallback shader 'NoeNoe/NoeNoe Overlay Shader (Opaque)' not found
+Shader 'Leviant's Shaders/ScreenSpace Ubershader v2.8': fallback shader 'Particles/Multiply' not found
+Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3037 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.7 MB.
+System memory in use after: 159.5 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 3749.
+Total: 4.104500 ms (FindLiveObjects: 0.371200 ms CreateObjectMapping: 0.222500 ms MarkObjects: 2.553900 ms  DeleteObjects: 0.956000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003387 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.50 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.809 seconds
+Domain Reload Profiling:
+	ReloadAssembly (810ms)
+		BeginReloadAssembly (87ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		EndReloadAssembly (685ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (188ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (343ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (97ms)
+				ProcessInitializeOnLoadAttributes (236ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Okano/NoeNoe/Opaque Unlit Stencil': fallback shader 'Okano/NoeNoe Opaque Rework' not found
+Shader 'Okano/NoeNoe/Opaque Emissive Sparkle': fallback shader 'NoeNoe/NoeNoe Overlay Shader (Opaque)' not found
+Shader 'Leviant's Shaders/ScreenSpace Ubershader v2.8': fallback shader 'Particles/Multiply' not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3037 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.7 MB.
+System memory in use after: 159.5 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 3752.
+Total: 3.657700 ms (FindLiveObjects: 0.298100 ms CreateObjectMapping: 0.129400 ms MarkObjects: 2.252600 ms  DeleteObjects: 0.976900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 447.623580 seconds.
+  path: Assets/Blood/bloodspawner.prefab
+  artifactKey: Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodspawner.prefab using Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '211796f914fa4eef27bd0694ab2014c2') in 0.086566 seconds 
+  Import took 0.091121 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Blood/bloodstreak.prefab
+  artifactKey: Guid(b62024940efe3dd4f8576fbf8e740eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodstreak.prefab using Guid(b62024940efe3dd4f8576fbf8e740eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8872c8e0c2d0fccdf8a90160f022073') in 0.009257 seconds 
+  Import took 0.013138 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.130127 seconds.
+  path: Assets/Blood/bloodspawner.prefab
+  artifactKey: Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodspawner.prefab using Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e6fb5d222009afba6c55d8804e21418') in 0.007590 seconds 
+  Import took 0.012111 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/Blood/bloodstreak.prefab
+  artifactKey: Guid(b62024940efe3dd4f8576fbf8e740eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodstreak.prefab using Guid(b62024940efe3dd4f8576fbf8e740eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa24dbca700a26fe5c6adc2f37d4886a') in 0.008326 seconds 
+  Import took 0.012415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.615618 seconds.
+  path: Assets/Blood/bloodspawner.prefab
+  artifactKey: Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodspawner.prefab using Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '996d56422067f761b5ff500495d2b9de') in 0.007395 seconds 
+  Import took 0.011955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/Blood/bloodstreak.prefab
+  artifactKey: Guid(b62024940efe3dd4f8576fbf8e740eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodstreak.prefab using Guid(b62024940efe3dd4f8576fbf8e740eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f9a3184e3ffb12ca94a1d5de12ac6dc') in 0.006673 seconds 
+  Import took 0.010745 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.589079 seconds.
+  path: Assets/Blood/bloodspawner.prefab
+  artifactKey: Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodspawner.prefab using Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a105734639f0c516f53a830f9d27b5b') in 0.009041 seconds 
+  Import took 0.014415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000123 seconds.
+  path: Assets/Blood/bloodstreak.prefab
+  artifactKey: Guid(b62024940efe3dd4f8576fbf8e740eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodstreak.prefab using Guid(b62024940efe3dd4f8576fbf8e740eda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '017a8eb1810d2ef2de46db1a4ee5159c') in 0.026096 seconds 
+  Import took 0.030746 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 543.099260 seconds.
+  path: Assets/scripts/bloodsquib.prefab
+  artifactKey: Guid(fbc6a119226f37d4c9a89516f6c89e1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/scripts/bloodsquib.prefab using Guid(fbc6a119226f37d4c9a89516f6c89e1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f6b4b1af35ff5b85fe1a8b40c54f05d') in 0.011802 seconds 
+  Import took 0.017098 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 71.183168 seconds.
+  path: Assets/bloodFX.prefab
+  artifactKey: Guid(3d738684e2c67f8419f721a9eb1b41db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/bloodFX.prefab using Guid(3d738684e2c67f8419f721a9eb1b41db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16234051ff86d34c97eaa76f00d4af26') in 0.043879 seconds 
+  Import took 0.049309 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003515 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.860 seconds
+Domain Reload Profiling:
+	ReloadAssembly (860ms)
+		BeginReloadAssembly (96ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (725ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (201ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (31ms)
+			SetupLoadedEditorAssemblies (354ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (97ms)
+				ProcessInitializeOnLoadAttributes (248ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Okano/NoeNoe/Opaque Unlit Stencil': fallback shader 'Okano/NoeNoe Opaque Rework' not found
+Shader 'Okano/NoeNoe/Opaque Emissive Sparkle': fallback shader 'NoeNoe/NoeNoe Overlay Shader (Opaque)' not found
+Shader 'Leviant's Shaders/ScreenSpace Ubershader v2.8': fallback shader 'Particles/Multiply' not found
+Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3037 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.8 MB.
+System memory in use after: 159.6 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 3757.
+Total: 3.956900 ms (FindLiveObjects: 0.352200 ms CreateObjectMapping: 0.134500 ms MarkObjects: 2.398200 ms  DeleteObjects: 1.070900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 15.403451 seconds.
+  path: Assets/Blood/bloodspawner.prefab
+  artifactKey: Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood/bloodspawner.prefab using Guid(c0111413eb8756b45b52948ca11a02af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16b83625f07c63b2f512da8c0b8f43fb') in 0.068739 seconds 
+  Import took 0.074497 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003496 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.955 seconds
+Domain Reload Profiling:
+	ReloadAssembly (955ms)
+		BeginReloadAssembly (95ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (823ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (187ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (26ms)
+			SetupLoadedEditorAssemblies (490ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (99ms)
+				ProcessInitializeOnLoadAttributes (382ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Okano/NoeNoe/Opaque Unlit Stencil': fallback shader 'Okano/NoeNoe Opaque Rework' not found
+Shader 'Okano/NoeNoe/Opaque Emissive Sparkle': fallback shader 'NoeNoe/NoeNoe Overlay Shader (Opaque)' not found
+Shader 'Leviant's Shaders/ScreenSpace Ubershader v2.8': fallback shader 'Particles/Multiply' not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3037 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.8 MB.
+System memory in use after: 159.6 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 3761.
+Total: 3.877400 ms (FindLiveObjects: 0.348800 ms CreateObjectMapping: 0.134100 ms MarkObjects: 2.379200 ms  DeleteObjects: 1.014700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003568 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.843 seconds
+Domain Reload Profiling:
+	ReloadAssembly (843ms)
+		BeginReloadAssembly (97ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (708ms)
+			LoadAssemblies (61ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (190ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (362ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (100ms)
+				ProcessInitializeOnLoadAttributes (253ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Okano/NoeNoe/Opaque Unlit Stencil': fallback shader 'Okano/NoeNoe Opaque Rework' not found
+Shader 'Okano/NoeNoe/Opaque Emissive Sparkle': fallback shader 'NoeNoe/NoeNoe Overlay Shader (Opaque)' not found
+Shader 'Leviant's Shaders/ScreenSpace Ubershader v2.8': fallback shader 'Particles/Multiply' not found
+Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3037 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.8 MB.
+System memory in use after: 159.6 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 3764.
+Total: 4.214600 ms (FindLiveObjects: 0.347200 ms CreateObjectMapping: 0.135600 ms MarkObjects: 2.626300 ms  DeleteObjects: 1.104700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003401 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.853 seconds
+Domain Reload Profiling:
+	ReloadAssembly (853ms)
+		BeginReloadAssembly (82ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		EndReloadAssembly (734ms)
+			LoadAssemblies (58ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (186ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (26ms)
+			SetupLoadedEditorAssemblies (405ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (104ms)
+				ProcessInitializeOnLoadAttributes (291ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Okano/NoeNoe/Opaque Unlit Stencil': fallback shader 'Okano/NoeNoe Opaque Rework' not found
+Shader 'Okano/NoeNoe/Opaque Emissive Sparkle': fallback shader 'NoeNoe/NoeNoe Overlay Shader (Opaque)' not found
+Shader 'Leviant's Shaders/ScreenSpace Ubershader v2.8': fallback shader 'Particles/Multiply' not found
+Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3037 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.8 MB.
+System memory in use after: 159.6 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 3767.
+Total: 3.643400 ms (FindLiveObjects: 0.320600 ms CreateObjectMapping: 0.130000 ms MarkObjects: 2.162900 ms  DeleteObjects: 1.029300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

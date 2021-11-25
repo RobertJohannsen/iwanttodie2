@@ -7,9 +7,10 @@ public class zombieAI : MonoBehaviour
 {
     [Header("Assignables")]
     public LineRenderer lr;
-    public GameObject player ,eyes ,root , ragdoll ,head , body;
+    public GameObject player, eyes, root, ragdoll, head, body;
     public NavMeshAgent zombieAgent;
     public Vector3 overrideTarget;
+    public GameObject overrideObject;
     public LayerMask levelGeo;
 
     [Header("Status")]
@@ -35,6 +36,9 @@ public class zombieAI : MonoBehaviour
 
     public enum state { wander, chase, die };
     public state zombieType;
+    public enum overState {dynamic , movement , player , none};
+    public overState overrideState;
+
 
     [Header("Behaviour")]
     public AnimationCurve accelerationCurve;
@@ -72,9 +76,11 @@ public class zombieAI : MonoBehaviour
 
     public GameObject dummy;
 
-    
 
 
+    [Header("Overrides")]
+    public bool inOverride;
+    public int overrideThres, overrideCount;
 
 
 
@@ -95,6 +101,11 @@ public class zombieAI : MonoBehaviour
         visualisePath();
     }
 
+    private void FixedUpdate()
+    {
+        handleOverride();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -110,8 +121,8 @@ public class zombieAI : MonoBehaviour
         {
             if (zombieType == state.chase)
             {
+                evaluateTarget();
                 zombieMovementinChase();
-                zombieAgent.destination = player.transform.position;
             }
 
             if (distanceToPlayer < sleepyAlertRadius)
@@ -145,6 +156,71 @@ public class zombieAI : MonoBehaviour
         inFall();
     }
 
+    void evaluateTarget()
+    {
+        switch (overrideState) 
+        {
+            case overState.none:
+                zombieAgent.destination = this.transform.position;
+                break;
+            case overState.player:
+                zombieAgent.destination = player.transform.position;
+                break;
+            case overState.movement:
+                zombieAgent.destination = overrideTarget;
+                break;
+            case overState.dynamic:
+                zombieAgent.destination = overrideObject.transform.position;
+                break;
+        }
+    }
+
+    void handleOverride()
+    {
+        if(inOverride)
+        {
+            overrideCount++;
+
+            if(overrideCount >= overrideThres)
+            {
+                overrideCount = 0;
+                inOverride = false;
+                overrideState = overState.player;
+            }
+        }
+    }
+
+    void setNewOverridePosition(Vector3 target , int time = 0)
+    {
+        if(time > 0)
+        {
+            overrideTarget = target;
+            overrideState = overState.movement;
+            inOverride = true;
+        }
+        else
+        {
+            overrideTarget = target;
+            overrideState = overState.movement;
+        }
+        overrideCount = 0;
+    }
+
+    void setNewOverrideTarget(GameObject target, int time = 0) 
+    {
+        if (time > 0)
+        {
+            overrideObject = target;
+            overrideState = overState.dynamic;
+            inOverride = true;
+        }
+        else
+        {
+            overrideObject = target;
+            overrideState = overState.dynamic;
+        }
+        overrideCount = 0;
+    }
     private void viewMesh()
     {
         body.GetComponent<MeshRenderer>().enabled = showMesh;

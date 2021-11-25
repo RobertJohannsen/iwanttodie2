@@ -259,6 +259,50 @@ RectTransform:
   m_AnchoredPosition: {x: -869, y: -376}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &325715193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325715195}
+  - component: {fileID: 325715194}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &325715194
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325715193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.8470793, y: 4.9414797, z: 4.5479054}
+  m_Center: {x: 1.9235396, y: 1.9707398, z: 1.7739527}
+--- !u!4 &325715195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325715193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.95, y: 0, z: 7.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &434778487
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +587,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 43.364, y: -67.58, z: -27.852}
+--- !u!1 &918357997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 918358001}
+  - component: {fileID: 918358000}
+  - component: {fileID: 918357999}
+  - component: {fileID: 918357998}
+  m_Layer: 0
+  m_Name: Plane (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &918357998
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918357997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &918357999
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918357997}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 03074641bf6f62e49b997896fb617f76, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &918358000
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918357997}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &918358001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918357997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.33, y: 3.1590025, z: -5.6271257}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952897910
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +740,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19758
+  m_Name: pb_Mesh20140
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2524,6 +2664,7 @@ MonoBehaviour:
   bashForce: 5
   meleeDistance: 0
   meleeForce: 0
+  crouchAcc: 0.3
   reloadType: 0
   reloadTime: 1500
   reloadInsertTime: 1000
@@ -2963,17 +3104,10 @@ MonoBehaviour:
   wasSlideThres: 0
   counterMovement: 0.175
   maxSlopeAngle: 35
-  crouchScale: 0.5
-  slideForce: 400
-  slideCounterMovement: 0.2
-  crReturnThres: 20
-  crReturnCount: 0
-  crThres: 45
-  crCount: 0
-  crMinThres: 0
+  crouchScale: 1
   crouchBoy: 0
-  jumpForce: 330
-  maxJumps: 20
+  jumpForce: 12
+  maxJumps: 1
   lastInput: 
   xRaw: 0
   yRaw: 0
@@ -3040,30 +3174,14 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   headbobStartThreshold: 0.3
-  headbobYOffset: 1.6
+  headbobYOffset: 0.4
   headBobWalkSpeed: 15.5
   headBobWalkAmount: 0.07
-  headBobCrouchSpeed: 0
-  headBobCrouchAmount: 0
+  headBobCrouchSpeed: 14
+  headBobCrouchAmount: 0.05
   headBobSrpintSpeed: 0
   headBobSprintAmount: 0
   defaultYpos: 0
-  maxCamAngle: 0
-  camTiltTime: 0
-  returnTiltTime: 0
-  slDownTime: 0
-  slDownStep: 0
-  slDollyStep: 0
-  slDollyMod: 0
-  camZoomSped: 0
-  camZoomStep: 0
-  camZoomMod: 0
-  camZoomedMod: 0
-  camZCount: 0
-  camZTime: 0
-  camZReturn: 0
-  speedFOV: 0
-  camZoomed: 0
   airGround: 0
   slowStacksStep: 0
   slowStacksThres: 30
@@ -3109,6 +3227,8 @@ MonoBehaviour:
   refreshThres: 50
   previousInput: 
   freeLook: 0
+  crouchTime: 0.5
+  currentScale: 0
   brokeDodgeCooldown: 0
   brokeDodgeStep: 0
   brokeDodgeThres: 60
@@ -3244,7 +3364,7 @@ MonoBehaviour:
   selectedSlot: 0
   slotCount: 0
   InventoryReferenceSlot:
-  - {fileID: 1648381190619187308, guid: eec895bad3b0a144f9dd2a247380cadb, type: 3}
+  - {fileID: 8392463584454361972, guid: 2e5a37197508ed649aeed3cca6f51363, type: 3}
   weaponAmmoIDList: 
   currentAmmoList: 
   ammopoolList: 
@@ -3636,6 +3756,7 @@ MonoBehaviour:
   body: {fileID: 6646176313174990505}
   zombieAgent: {fileID: 0}
   overrideTarget: {x: 0, y: 0, z: 0}
+  overrideObject: {fileID: 0}
   levelGeo:
     serializedVersion: 2
     m_Bits: 0
@@ -3660,6 +3781,7 @@ MonoBehaviour:
   MaxHp: 100
   radiusFromTarget: 0
   zombieType: 1
+  overrideState: 3
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -3763,6 +3885,9 @@ MonoBehaviour:
   sleepyAlertRadius: 0
   sleepyAlertInSightRadius: 0
   dummy: {fileID: 0}
+  inOverride: 0
+  overrideThres: 0
+  overrideCount: 0
 --- !u!4 &6646176312720083110
 Transform:
   m_ObjectHideFlags: 0

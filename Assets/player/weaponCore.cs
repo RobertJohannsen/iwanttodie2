@@ -44,6 +44,7 @@ public class weaponCore : MonoBehaviour
     public int weaponDamage;
     public float bashDistance , bashForce;
     public float meleeDistance , meleeForce;
+    public float crouchAcc;
     public enum ReloadType {mag , single};
     public ReloadType reloadType;
     public int reloadTime, reloadInsertTime;
@@ -615,7 +616,15 @@ public class weaponCore : MonoBehaviour
         }
        else
         {
-            finalAimCone = Mathf.Lerp(finalAimCone , baseAimConeAccuracy ,moveDevReturnTime);
+            if(!moveCore.crouching)
+            {
+                finalAimCone = Mathf.Lerp(finalAimCone, baseAimConeAccuracy, moveDevReturnTime);
+            }
+            else
+            {
+                finalAimCone = Mathf.Lerp(finalAimCone, crouchAcc, moveDevReturnTime);
+            }
+            
         }
     }
 

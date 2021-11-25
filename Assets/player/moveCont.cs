@@ -80,13 +80,6 @@ public class moveCont : MonoBehaviour
     //Crouch & Slide
     public float crouchScale;
     private Vector3 playerScale;
-    public float slideForce = 400;
-    public float slideCounterMovement = 0.2f;
-    public int crReturnThres, crReturnCount;
-    private float crReturnStep;
-    public int crThres, crCount;
-    private float crStep, crDollyMod;
-    public float crMinThres;
     public bool crouchBoy;
 
     [Header("Jump stuff")]
@@ -136,18 +129,7 @@ public class moveCont : MonoBehaviour
 
 
 
-    [Header("camDolly stuff")]
-    //cameradolly stuff
-    private GameObject camDolly;
-    public float maxCamAngle;
-    public int camTiltTime, returnTiltTime; // measured in frames ?
-    public int slDownTime, slDownStep;
-    public float slDollyStep, slDollyMod;
 
-    public float camZoomSped, camZoomStep, camZoomMod, camZoomedMod;
-    public int camZCount, camZTime, camZReturn;
-    public int speedFOV;
-    public bool camZoomed;
 
 
     public bool airGround;
@@ -168,6 +150,8 @@ public class moveCont : MonoBehaviour
     public int refreshStep, refreshThres;
     public string previousInput;
     public bool freeLook;
+    public float crouchTime;
+    public float currentScale;
 
     [Header("Dodge stuff")]
     public bool brokeDodgeCooldown;
@@ -206,8 +190,6 @@ public class moveCont : MonoBehaviour
 
         //Why do this in code , uhhhhh because I can :3
 
-        camDolly = new GameObject("camDolly");
-
         groundCheck = new GameObject("groundCheck");
 
         //camDolly.transform.parent = camContainer;
@@ -221,6 +203,7 @@ public class moveCont : MonoBehaviour
 
     private void FixedUpdate()
     {
+        crouchingState();
         handleStamina();
         refreshInputs();
         disableCounter();
@@ -381,6 +364,8 @@ public class moveCont : MonoBehaviour
         yInt = Input.GetAxis("Vertical");
         yInputIntThreshold = Mathf.Clamp(yInputIntThreshold,-1 , 1);
         xInputIntThreshold = Mathf.Clamp(xInputIntThreshold, -1, 1);
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+            StopCrouch();
 
         jumping = Input.GetButton("Jump");
         crouching = Input.GetKey(KeyCode.LeftControl);
@@ -389,12 +374,7 @@ public class moveCont : MonoBehaviour
 
         //playerCam.transform.GetChild(0).gameObject.GetComponent<Camera>().fieldOfView = baseFOV + camZoomMod - camZoomedMod;
         //Crouching
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-            StartCrouch();
-        if (Input.GetKey(KeyCode.LeftControl))
-            crouchingState();
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-            StopCrouch();
+
         if (Input.GetKeyDown(KeyCode.Escape))
             DisableCursor();
         if (Input.anyKeyDown)
@@ -426,12 +406,6 @@ public class moveCont : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.G))
             freeLook = false;
 
-
-        /// switch between raw input and interpolated input
-        /// scaling input ? (faster to max)
-        /// raw / new scale = percentage 
-        /// percentage max = 1 
-        /// 
         if (!useRaw) 
         {
             xScaledInput = Mathf.Clamp(xInt / xInputIntThreshold, -1, 1);
@@ -482,9 +456,11 @@ public class moveCont : MonoBehaviour
             y = yRaw;
         }
 
-      
-
-      
+        /// switch between raw input and interpolated input
+        /// scaling input ? (faster to max)
+        /// raw / new scale = percentage 
+        /// percentage max = 1 
+        /// 
     }
 
     #region Cursor Functions
@@ -560,26 +536,34 @@ public class moveCont : MonoBehaviour
         {
             if (!grounded) return;
 
-            if(rb.velocity.magnitude > headbobStartThreshold)
+            if(rb.velocity.magnitude > headbobStartThreshold && !crouching)
             {
                  
                 timer += Time.deltaTime;
                 playerCam.transform.localPosition = new Vector3(
                     playerCam.transform.localPosition.x
-                    , groundCheck.transform.position.y +defaultYpos + ((crouching ? headBobCrouchAmount : headBobWalkAmount) * Mathf.Sin(timer * (crouching ? headBobCrouchSpeed : headBobWalkSpeed)) - headbobYOffset)
+                    , groundCheck.transform.position.y + ((crouching ? headBobCrouchAmount : headBobWalkAmount) * Mathf.Sin(timer * (crouching ? headBobCrouchSpeed : headBobWalkSpeed))) -headbobYOffset
                     , playerCam.transform.localPosition.z);
             }
             else
             {
                 playerCam.transform.localPosition = Vector3.Lerp(playerCam.transform.localPosition , new Vector3(
                    playerCam.transform.localPosition.x
-                   , groundCheck.transform.position.y + defaultYpos - headbobYOffset
+                   , groundCheck.transform.position.y + defaultYpos
                    , playerCam.transform.localPosition.z) , 0.0001f)
                     ;
             }
         }
     }
-
+    void crouchingState()
+    {
+        if(crouching)
+        {
+           // currentScale = Mathf.Lerp(playerScale.y, crouchScale, crouchTime);
+            Debug.Log(playerScale);
+            transform.localScale = new Vector3(1, crouchScale , 1);
+        }
+    }
     void calculateAimCone()
     {
         
@@ -596,116 +580,24 @@ public class moveCont : MonoBehaviour
         {
             case moveState.planar:
                 Movement();
-                camDolly.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 break;
         }
     }
 
     private void StartCrouch()
     {
-        if (grounded)
-        {
-
-            slideOrientation = orientation.transform.forward;
-            if (rb.velocity.magnitude <= crMinThres)
-            {
-                crouchBoy = true;
-                state = moveState.planar;
-            }
-            else
-            {
-                if ((rb.velocity.magnitude <= slideThres) && (rb.velocity.magnitude >= crMinThres))
-                {
-                    rb.AddForce(slideOrientation * slideBaseSpeed);
-                }
-            }
-        }
 
 
     }
 
-    private void startSlide()
-    {
-        if (state == moveState.slide)
-        {
-            wasSliding = true;
-            slDownStep++;
-            if (slDownStep < slDownTime)
-            {
-                slDollyStep = (playerScale.y - slideScale) / slDownTime;
-                slDollyMod = Mathf.Clamp(slDollyMod -= slDollyStep, -(playerScale.y - slideScale), playerScale.y);
-
-                transform.localScale = new Vector3(playerScale.x, playerScale.y + slDollyMod, playerScale.z);
-
-
-            }
-        }
-    }
-
-    void crouchCamDolly()
-    {
-        if (state == moveState.planar)
-        {
-            if (crouching && wasSliding)
-            {
-
-                crReturnCount++;
-                if (crReturnCount < crReturnThres)
-                {
-                    float crReturnScale = (crouchScale - slideScale);
-                    crReturnStep = crReturnScale / crReturnThres;
-                    slDollyMod = Mathf.Clamp(slDollyMod += crReturnStep, -crouchScale, playerScale.y);
-
-                    transform.localScale = new Vector3(playerScale.x, playerScale.y + slDollyMod, playerScale.z);
-                }
-            }
-
-
-        }
-    }
 
     private void StopCrouch()
     {
+        currentScale = playerScale.y;
         wasSliding = true;
         crouchBoy = false;
-        slDownStep = 0;
-        crCount = 0;
-        crReturnCount = 0;
         state = moveState.planar;
         transform.localScale = playerScale;
-    }
-
-    void crouchingState()
-    {
-        if (state == moveState.slide)
-        {
-            wasSliding = true;
-            startSlide();
-        }
-
-        if (state == moveState.planar)
-        {
-            if (crouchBoy)
-            {
-
-                crCount++;
-                if (crCount < crThres)
-                {
-                    crStep = crouchScale / crThres;
-                    crDollyMod = Mathf.Clamp(crDollyMod -= crStep, -crouchScale, playerScale.y);
-
-                    transform.localScale = new Vector3(playerScale.x, playerScale.y + crDollyMod, playerScale.z);
-                }
-            }
-        }
-
-
-
-        if (rb.velocity.magnitude <= slideEndSpeed)
-        {
-            crouchCamDolly();
-            state = moveState.planar;
-        }
     }
 
     private void handleSlide()
@@ -750,28 +642,6 @@ public class moveCont : MonoBehaviour
             if (wasSlideCount > wasSlideThres)
             {
                 wasSliding = false;
-            }
-        }
-
-        if (grounded && airGround)
-        {
-            airGround = false;
-            if (crouching)
-            {
-                slideOrientation = orientation.transform.forward;
-                if (rb.velocity.magnitude <= crMinThres)
-                {
-                    crouchBoy = true;
-                    state = moveState.planar;
-                }
-                else
-                {
-                    if ((rb.velocity.magnitude <= slideThres) && (rb.velocity.magnitude >= crMinThres))
-                    {
-
-                        rb.AddForce(slideOrientation * jumpSlideBaseSpeed);
-                    }
-                }
             }
         }
 
@@ -867,8 +737,8 @@ public class moveCont : MonoBehaviour
     {
         if (!wasSliding)
         {
-   
 
+           
             if (grounded)
             {
                 noOfJumps = maxJumps;
@@ -883,8 +753,7 @@ public class moveCont : MonoBehaviour
 
 
                 //Add jump forces
-                rb.AddForce(Vector2.up * jumpForce * 1.5f);
-                rb.AddForce(normalVector * jumpForce * 0.5f);
+                rb.velocity += Vector3.up * jumpForce * 1.5f;
 
                 //If jumping while falling, reset y velocity.
                 Vector3 vel = rb.velocity;
