@@ -57,7 +57,6 @@ public class plyInventory : MonoBehaviour
         if (InventoryReferenceSlot.Count != 0)
         {
             fakeBarrel.transform.localPosition = InventoryReferenceSlot[selectedSlot].weaponBarrel.transform.localPosition;
-            fakeBarrel.transform.localRotation = InventoryReferenceSlot[selectedSlot].weaponBarrel.transform.localRotation;
         }
        
     }
@@ -86,6 +85,8 @@ public class plyInventory : MonoBehaviour
             return;
         }
 
+       
+        
         if (weaponRoot.transform.childCount != 0 && weaponRoot.transform.childCount > 1)
         {
             Destroy(weaponRoot.transform.GetChild(1).gameObject);
@@ -178,7 +179,7 @@ public class plyInventory : MonoBehaviour
 
 
     }
-void AssignWeaponAnimations()
+    void AssignWeaponAnimations()
     {
         if(!InventoryReferenceSlot[selectedSlot].weaponAnimator)
         {

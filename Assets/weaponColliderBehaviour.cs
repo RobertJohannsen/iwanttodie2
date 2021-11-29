@@ -9,6 +9,8 @@ public class weaponColliderBehaviour : MonoBehaviour
     private bool isThrown;
     private void Awake()
     {
+        Debug.Log(this.gameObject.transform.parent);
+        Debug.Log(this.gameObject.transform.parent.GetComponent<weaponStats>());
         core = this.gameObject.GetComponentInParent<weaponCore>();
         stats = this.gameObject.GetComponentInParent<weaponStats>();
     }
@@ -77,13 +79,16 @@ public class weaponColliderBehaviour : MonoBehaviour
             if(!core) { return; }
             if (core.inMelee)
             {
+                Debug.Log(other);
                 switch (other.gameObject.tag)
                 {
                     case "zombieHead":
+                        Debug.Log("hit");
                         other.gameObject.GetComponent<zombieReferenceComp>().zombie.takeDamage(stats.weaponDamage, 100);
                         other.gameObject.GetComponent<zombieReferenceComp>().zombie.doStun(stats.bashForce);
                         break;
                     case "zombieBody":
+                        Debug.Log("hit");
                         other.gameObject.GetComponent<zombieReferenceComp>().zombie.takeDamage(stats.weaponDamage, 1);
                         other.gameObject.GetComponent<zombieReferenceComp>().zombie.doStun(core.bashForce);
                         break;

@@ -121,9 +121,13 @@ MonoBehaviour:
   weaponMesh: {fileID: 2232932942799905026}
   weaponBarrel: {fileID: 2232932941898355718}
   muzzleFlash: {fileID: 0}
+  weaponCollider: {fileID: 0}
+  weaponType: 0
+  itemType: 0
   currentWeaponID: 0
   weaponAmmoID: 0
   canFullAuto: 0
+  isThrown: 0
   shotCount: 1
   baseAimConeAccuracy: 1
   moveAimConeAccuracy: 8
@@ -147,6 +151,13 @@ MonoBehaviour:
   ejectionForce: 650
   ejectionSpin: 1000
   currentAmmo: 15
+  meleeDuration: 0
+  meleeDistance: 0
+  meleeForce: 0
+  bashCost: 0
+  healAmount: 0
+  speedBuff: 0
+  timeToConsumue: 0
 --- !u!95 &974469723023217561
 Animator:
   serializedVersion: 3

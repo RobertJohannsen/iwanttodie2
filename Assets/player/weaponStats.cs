@@ -12,6 +12,7 @@ public class weaponStats : MonoBehaviour
     public GameObject weaponBarrel;
     public GameObject muzzleFlash;
     public GameObject weaponCollider;
+    public killShowArms arms;
 
     public enum equipType { firearm, melee, singleConsumable, consumable ,throwable }
     public equipType weaponType;
@@ -31,7 +32,6 @@ public class weaponStats : MonoBehaviour
     public int ejectFrames, totalCycleTime;
     public float maxShotDistance;
     public int magCapacity, ammoPool;
-    
     public int bashDuration;
     public int weaponDamage;
     public float bashDistance, bashForce;

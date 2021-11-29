@@ -420,9 +420,9 @@ public class weaponCore : MonoBehaviour
         plyInv.InventoryReferenceSlot[plyInv.selectedSlot] = interactHit.collider.gameObject.GetComponentInParent<weaponStats>();
         if(interactHit.collider.gameObject)
         {
-            interactHit.collider.gameObject.transform.parent.position = new Vector3(9999999, 999999, 99999);
+            if(interactHit.collider.gameObject.transform.parent) interactHit.collider.gameObject.transform.parent.position = new Vector3(9999999, 999999, 99999);
         }
-       
+      
 
         plyInv.weaponRoot.transform.GetChild(1).GetComponent<Animator>().enabled = true;
         plyInv.scrollUpdateDetected();
@@ -447,12 +447,16 @@ public class weaponCore : MonoBehaviour
     {
         if (plyInv.InventoryReferenceSlot[plyInv.selectedSlot].currentWeaponID == 0) return;
 
+      
+
         var throwable = Instantiate(plyInv.weaponRoot.transform.GetChild(1).gameObject , throwPosition.transform.position , Quaternion.identity);
         throwable.GetComponent<Animator>().enabled = false;
         throwable.GetComponent<BoxCollider>().enabled = true;
         throwable.GetComponent<Rigidbody>().AddForce(weaponThrowForce * Camera.main.transform.forward);
         throwable.gameObject.transform.GetComponentInChildren<weaponColliderBehaviour>().weaponThrown();
-        Debug.Log("did thing");
+
+        if (throwable.GetComponent<weaponStats>().arms != null) throwable.GetComponent<weaponStats>().arms.armsEnabled = false;
+        Debug.Log("throwable");
 
         if(weaponType == equipType.throwable)
         {
@@ -467,11 +471,12 @@ public class weaponCore : MonoBehaviour
     public void discardCurrentWeapon()
     {
         if (plyInv.InventoryReferenceSlot[plyInv.selectedSlot].currentWeaponID == 0) return;
-        
+
         var throwable = Instantiate(plyInv.weaponRoot.transform.GetChild(1).gameObject, dropPosition.transform.position, Quaternion.identity);
         throwable.GetComponent<Animator>().enabled = false;
         throwable.GetComponent<BoxCollider>().enabled = true;
 
+        if (throwable.GetComponent<weaponStats>().arms != null) throwable.GetComponent<weaponStats>().arms.armsEnabled = false ;
         removeWeaponReference();
         plyInv.scrollUpdateDetected();
     }
@@ -509,7 +514,7 @@ public class weaponCore : MonoBehaviour
     {
         
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out interactHit, interactDistance))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out interactHit, interactDistance , shootLayerMask,QueryTriggerInteraction.Ignore))
         {
             Debug.Log(interactHit.collider.gameObject);
             if (interactHit.collider.gameObject.GetComponent<doorBehaviour>()) interactHit.collider.gameObject.GetComponent<doorBehaviour>().openDoor();
@@ -741,6 +746,9 @@ public class weaponCore : MonoBehaviour
                     case "zombieBody":
                         spawnBulletWound(weaponHit);
                         weaponHit.collider.gameObject.GetComponent<zombieReferenceComp>().zombie.takeDamage(weaponDamage, 1);
+                        break;
+                    case "zombieDoll":
+                        spawnBulletWound(weaponHit);
                         break;
                 }
 
