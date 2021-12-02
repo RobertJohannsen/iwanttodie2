@@ -12,6 +12,7 @@ public class zombieAI : MonoBehaviour
     public Vector3 overrideTarget;
     public GameObject overrideObject;
     public LayerMask levelGeo;
+    public zombieAnimationController zAnimCont;
 
     [Header("Status")]
     public bool isActive;
@@ -41,6 +42,9 @@ public class zombieAI : MonoBehaviour
 
 
     [Header("Behaviour")]
+
+   
+
     public AnimationCurve accelerationCurve;
     public int timeToMaxAcceleration, moveTimeElapsed;
     public float timeInTopSpeed, maxTimeInTopSpeed;
@@ -76,13 +80,21 @@ public class zombieAI : MonoBehaviour
 
     public GameObject dummy;
 
+    public enum soundState { idle, alert, inrange };
+    public soundState audioState ,prevAudioState;
+    public bool audioStateChanged;
 
+
+
+    
 
     [Header("Overrides")]
     public bool inOverride;
     public int overrideThres, overrideCount;
 
-
+    [Header("NavMeshLink stuff")]
+    public bool prevLinkStatus ,ignore;
+    public bool inClimbState;
 
 
     // Start is called before the first frame update
@@ -99,6 +111,7 @@ public class zombieAI : MonoBehaviour
         zombieAgent.updateUpAxis = false;
         zombieAgent.stoppingDistance = 1.25f;
         visualisePath();
+        audioState = soundState.idle;
     }
 
     private void FixedUpdate()
@@ -106,10 +119,44 @@ public class zombieAI : MonoBehaviour
         handleOverride();
     }
 
+    private void checkNavMeshLinks()
+    {
+
+        if(zombieAgent.isOnOffMeshLink != prevLinkStatus)
+        {
+            if(!ignore)
+            {
+                Debug.Log("entered link");
+                inClimbState = !inClimbState;
+                if(inClimbState)
+                {
+                    zAnimCont.callClimbStartAnimation();
+                }
+                else
+                {
+                    zAnimCont.unsuspendAnim();
+                }
+                ignore = true;
+            }
+            else
+            {
+                ignore = false;
+            }
+          
+        }
+        prevLinkStatus = zombieAgent.isOnOffMeshLink;
+    }
+
     // Update is called once per frame
     void Update()
     {
-      
+        checkNavMeshLinks();
+        if (audioStateChanged) audioStateChanged = false;
+        if (audioState != prevAudioState)
+        {
+            audioStateChanged = true;
+        }
+
         distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
 
       
@@ -143,7 +190,7 @@ public class zombieAI : MonoBehaviour
         zombieAgent.isStopped = hasFallen;
         
     
-        viewMesh();
+        //viewMesh();
         
         
         Debug.DrawRay(this.transform.position, this.transform.forward);
@@ -154,6 +201,8 @@ public class zombieAI : MonoBehaviour
         CheckForAttack();
         CheckForStun();
         inFall();
+
+        prevAudioState = audioState;
     }
 
     void evaluateTarget()
@@ -314,6 +363,7 @@ public class zombieAI : MonoBehaviour
 
     private void LateUpdate()
     {
+     
         if (Hp == 0)
         {
             GameObject doll = Instantiate(ragdoll, this.transform.position, Quaternion.identity);
@@ -322,6 +372,7 @@ public class zombieAI : MonoBehaviour
           //  doll.transform.localRotation = Quaternion.Euler(new Vector3(zombieAgent.transform.rotation.x + 15, zombieAgent.transform.rotation.y , zombieAgent.transform.rotation.z));
             Destroy(this.gameObject);
         }
+
     }
 
     void checkFOV()
@@ -335,6 +386,7 @@ public class zombieAI : MonoBehaviour
 
         if (targetDirFromEyes.magnitude < FOVradius)
         {
+            
             Debug.DrawRay(eyes.transform.position, targetDirFromEyes, Color.cyan);
             if(Physics.Raycast(eyes.transform.position, targetDirFromEyes, out eyeHit , 100f))
             {
@@ -342,6 +394,7 @@ public class zombieAI : MonoBehaviour
                 {
                     if (targetDir.magnitude < FOVradius)
                     {
+                        
                         Vector3 dir = player.transform.position - transform.position;
                         dir.y = 0;//This allows the object to only rotate on its y axis
                         Quaternion rot = Quaternion.LookRotation(dir);
@@ -349,6 +402,7 @@ public class zombieAI : MonoBehaviour
 
                         if (angleToPlayer >= -FOV / 2 && angleToPlayer <= FOV / 2)
                         {
+                            audioState = soundState.inrange;
                             startChase();
                         }
                     
@@ -360,6 +414,13 @@ public class zombieAI : MonoBehaviour
 
            
 
+        }
+        else
+        {
+            if(overrideState != overState.none)
+            {
+                audioState = soundState.idle;
+            }
         }
 
 
@@ -510,6 +571,7 @@ public class zombieAI : MonoBehaviour
         zombieAgent.velocity = Vector3.zero;
         player.GetComponent<moveCont>().takeDamage(damage);
         didAttack = true;
+        zAnimCont.callAttackAnimation();
         
     }
 

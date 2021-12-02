@@ -248,6 +248,7 @@ public class weaponCore : MonoBehaviour
 
     public void FixedUpdate()
     {
+        cycleCycle();
         reduceBash();
         handleRecoil();
         doTenk();
@@ -307,7 +308,7 @@ public class weaponCore : MonoBehaviour
                 if (gunState == reState.no)
                 {
                     tryFireWeapon();
-                    cycleCycle();
+                    
                 }
                 break;
 

@@ -523,7 +523,6 @@ public class moveCont : MonoBehaviour
             disableCounterMovement = true;
             slideOrientation = orientation.transform.forward;
             rb.AddForce(slideOrientation * grappleSprintSpeed);
-            Debug.Log("did thing");
             slowStacks = 0;
             breakGrappleCooldown = true;
             panicSprint = true;
