@@ -559,7 +559,6 @@ public class moveCont : MonoBehaviour
         if(crouching)
         {
            // currentScale = Mathf.Lerp(playerScale.y, crouchScale, crouchTime);
-            Debug.Log(playerScale);
             transform.localScale = new Vector3(1, crouchScale , 1);
         }
     }

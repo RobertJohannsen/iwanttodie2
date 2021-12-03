@@ -18,11 +18,24 @@ public class weaponFireBehaviour : MonoBehaviour
     {
         if(core.currentAmmo - 1 > 0)
         {
-            Debug.Log("reset fire");
             core.shootReady = true;
             core.elapseCycleTime = 0;
         }
        
+    }
+    public void killCurrentWeapon()
+    {
+        Debug.Log("killed obj");
+        core.discardCurrentWeapon();
+    }
+    public void becomeTank()
+    {
+        core.becomeTenk();
+    }
+
+    public void becomeZoom()
+    {
+        core.becomeSpeed();
     }
 
     public void healPly()

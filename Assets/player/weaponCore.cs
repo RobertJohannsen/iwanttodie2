@@ -289,6 +289,7 @@ public class weaponCore : MonoBehaviour
         switch (weaponType)
         {
             case equipType.singleConsumable:
+                Debug.Log("used");
                     useConsumable();
                 break;
             case equipType.consumable:
@@ -344,9 +345,9 @@ public class weaponCore : MonoBehaviour
 
     public void useConsumable()
     {
-        if(itemType == useType.hp) healPly(healAmount);
-        if (itemType == useType.tenk) becomeTenk();
-        if(itemType == useType.zoomies) becomeSpeed();
+        if(itemType == useType.hp) gunAnimationCont.callShootAnimation() ;
+        if (itemType == useType.tenk) gunAnimationCont.callShootAnimation() ;
+        if(itemType == useType.zoomies) gunAnimationCont.callShootAnimation();
     }
 
     public void healPly(int healAmount)
@@ -364,6 +365,7 @@ public class weaponCore : MonoBehaviour
 
     public void becomeSpeed()
     {
+        moveCore.slowStacks = 0;
         isZoomies = true;
         moveCore.speedModifier = speedBuff;
         speedStep = 0;
@@ -457,7 +459,6 @@ public class weaponCore : MonoBehaviour
         throwable.gameObject.transform.GetComponentInChildren<weaponColliderBehaviour>().weaponThrown();
 
         if (throwable.GetComponent<weaponStats>().arms != null) throwable.GetComponent<weaponStats>().arms.armsEnabled = false;
-        Debug.Log("throwable");
 
         if(weaponType == equipType.throwable)
         {
@@ -517,7 +518,6 @@ public class weaponCore : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out interactHit, interactDistance , shootLayerMask,QueryTriggerInteraction.Ignore))
         {
-            Debug.Log(interactHit.collider.gameObject);
             if (interactHit.collider.gameObject.GetComponent<doorBehaviour>()) interactHit.collider.gameObject.GetComponent<doorBehaviour>().openDoor();
 
             if (interactHit.collider.gameObject.GetComponent<canGrab>())
@@ -858,6 +858,7 @@ public class weaponCore : MonoBehaviour
 
     private void ejectCasing()
     {
+        if (currentWeaponID == 0) return;
         GameObject newCasing = Instantiate(casing, plyInv.weaponRoot.transform.GetChild(1).gameObject.GetComponent<weaponStats>().ejectionPort.transform.localPosition, Quaternion.identity);
         newCasing.transform.position = plyInv.weaponRoot.transform.GetChild(1).gameObject.GetComponent<weaponStats>().ejectionPort.transform.position;
         newCasing.transform.GetChild(0).GetComponent<Rigidbody>().AddForce(ejectionForce * plyInv.weaponRoot.transform.GetChild(1).gameObject.GetComponent<weaponStats>().ejectionPort.transform.forward);

@@ -11,7 +11,6 @@ public class weaponColliderBehaviour2 : MonoBehaviour
     {
         core = GameObject.FindGameObjectWithTag("bodyRoot").GetComponent<weaponCore>();
         stats = this.gameObject.transform.parent.GetComponent<weaponStats>();
-        Debug.Log(core + " " + stats);
     }
 
     public void Update()
@@ -77,7 +76,6 @@ public class weaponColliderBehaviour2 : MonoBehaviour
             if (!core) { return; }
             if (core.inMelee)
             {
-                Debug.Log(other);
                 switch (other.gameObject.tag)
                 {
                     case "zombieHead":

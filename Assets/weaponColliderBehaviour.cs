@@ -77,12 +77,17 @@ public class weaponColliderBehaviour : MonoBehaviour
             if(!core) { return; }
             if (core.inMelee)
             {
-                Debug.Log(other);
                 switch (other.gameObject.tag)
                 {
                     case "zombieHead":
-                        Debug.Log("hit");
-                        if(core.currentWeaponID != 0)
+                        weaponAudioLibrary audioLib = this.GetComponentInParent<weaponAudioLibrary>();
+                        if (audioLib)
+                        {
+                            audioLib.playImpact();
+                        }
+
+                        Instantiate(this.GetComponent<storeBloodSplat>().bloodFX, this.transform.position , Quaternion.identity);
+                        if (core.currentWeaponID != 0)
                         {
                             other.gameObject.GetComponent<zombieReferenceComp>().zombie.takeDamage(stats.weaponDamage, 100);
                         }
@@ -94,9 +99,22 @@ public class weaponColliderBehaviour : MonoBehaviour
                         other.gameObject.GetComponent<zombieReferenceComp>().zombie.doStun(stats.bashForce);
                         break;
                     case "zombieBody":
-                        Debug.Log("hit");
+                        Instantiate(this.GetComponent<storeBloodSplat>().bloodFX, this.transform.position, Quaternion.identity);
+                        weaponAudioLibrary audioLib2 = this.GetComponentInParent<weaponAudioLibrary>();
+                        if (audioLib2)
+                        {
+                            audioLib2.playImpact();
+                        }
                         other.gameObject.GetComponent<zombieReferenceComp>().zombie.takeDamage(stats.weaponDamage, 1);
                         other.gameObject.GetComponent<zombieReferenceComp>().zombie.doStun(core.bashForce);
+                        break;
+                    case "zombieDoll":
+                        Instantiate(this.GetComponent<storeBloodSplat>().bloodFX, this.transform.position, Quaternion.identity);
+                        weaponAudioLibrary audioLib3 = this.GetComponentInParent<weaponAudioLibrary>();
+                        if (audioLib3)
+                        {
+                            audioLib3.playImpact();
+                        }
                         break;
                 }
             }

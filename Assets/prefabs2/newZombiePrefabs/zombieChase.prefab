@@ -977,6 +977,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6119482104899696266}
   - component: {fileID: 4843012904023590247}
+  - component: {fileID: 3622975358534887286}
   m_Layer: 0
   m_Name: Cube.326
   m_TagString: Untagged
@@ -1018,13 +1019,13 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -4741881571157260309, guid: 708459a0bad3d4d4099459be00fda998, type: 3}
-  - {fileID: 2044773163437918071, guid: 708459a0bad3d4d4099459be00fda998, type: 3}
+  - {fileID: 2100000, guid: d2923c5afcb5f664284f3b86f9c76a09, type: 2}
   - {fileID: -7447246702262999548, guid: 708459a0bad3d4d4099459be00fda998, type: 3}
   - {fileID: -7640226178664343146, guid: 708459a0bad3d4d4099459be00fda998, type: 3}
   - {fileID: -5316500724444451560, guid: 708459a0bad3d4d4099459be00fda998, type: 3}
   - {fileID: -7162795932241221879, guid: 708459a0bad3d4d4099459be00fda998, type: 3}
   - {fileID: -3598983798144762556, guid: 708459a0bad3d4d4099459be00fda998, type: 3}
-  - {fileID: 2713048638566749558, guid: 708459a0bad3d4d4099459be00fda998, type: 3}
+  - {fileID: 2100000, guid: 0bbc1252995c44641a3842b22271bbea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1085,6 +1086,42 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.080140114, y: -1.8325415, z: 1.821599}
     m_Extent: {x: 17.772285, y: 21.916492, z: 5.83879}
   m_DirtyAABB: 0
+--- !u!114 &3622975358534887286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259273221607235423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef704a49c60beaa4b93531ef302281ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieRenderer: {fileID: 0}
+  clothes: 0
+  skin: 61
+  pants: 0
+  clothMat:
+  - {fileID: 2100000, guid: ba4ac9469aae43f438db4f19a176d41f, type: 2}
+  - {fileID: 2100000, guid: f22d57314437f8a41b2ba442a42b137d, type: 2}
+  - {fileID: 2100000, guid: e9c0cc46ea26b804c8db0f3bfebbaeed, type: 2}
+  - {fileID: 2100000, guid: bf88bf38ad7ed254ebbadf1ed9678076, type: 2}
+  - {fileID: 2100000, guid: 076b582e7b6957449b1d07157fbfda6d, type: 2}
+  - {fileID: 2100000, guid: 56fd9b963bc454d4e83f89fe875aff8c, type: 2}
+  - {fileID: 2100000, guid: 42e84fb88f0f27b459f8ddd85713ba2f, type: 2}
+  - {fileID: 2100000, guid: eba15186c9f720f4ca56ef96dc42c59e, type: 2}
+  - {fileID: 2100000, guid: 28138d25f98e1944cb616091fea160d7, type: 2}
+  - {fileID: 2100000, guid: bf1f7d95470a2fe49acb6015048b583b, type: 2}
+  skinMat:
+  - {fileID: 2100000, guid: d2923c5afcb5f664284f3b86f9c76a09, type: 2}
+  - {fileID: 2100000, guid: f5515a297a5da8444b8b08a29257d9be, type: 2}
+  - {fileID: 2100000, guid: 79a34b8ea41bc6642a8a22a0addee70c, type: 2}
+  pantsMat:
+  - {fileID: 2100000, guid: f22d57314437f8a41b2ba442a42b137d, type: 2}
+  - {fileID: 2100000, guid: 57fa80f966d052146aa5193e46f188b1, type: 2}
+  - {fileID: 2100000, guid: 42e84fb88f0f27b459f8ddd85713ba2f, type: 2}
+  defaultMaterials: []
 --- !u!1 &3544450208358793761
 GameObject:
   m_ObjectHideFlags: 0
