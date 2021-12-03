@@ -161,6 +161,7 @@ public class zombieAI : MonoBehaviour
 
       
         currentSpeed = zombieAgent.velocity.magnitude;
+        Debug.Log(currentSpeed);
 
         isMove = currentSpeed < 2f ? false : true;
 
@@ -366,10 +367,6 @@ public class zombieAI : MonoBehaviour
      
         if (Hp == 0)
         {
-            GameObject doll = Instantiate(ragdoll, this.transform.position, Quaternion.identity);
-            doll.GetComponent<Rigidbody>().velocity = zombieAgent.velocity;
-            doll.transform.rotation = zombieAgent.transform.rotation;
-          //  doll.transform.localRotation = Quaternion.Euler(new Vector3(zombieAgent.transform.rotation.x + 15, zombieAgent.transform.rotation.y , zombieAgent.transform.rotation.z));
             Destroy(this.gameObject);
         }
 
