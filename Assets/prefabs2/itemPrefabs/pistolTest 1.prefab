@@ -546,7 +546,7 @@ MonoBehaviour:
   totalCycleTime: 10
   maxShotDistance: 100
   magCapacity: 15
-  ammoPool: 15
+  ammoPool: 30
   bashDuration: 100
   weaponDamage: 1
   bashDistance: 3
@@ -623,6 +623,7 @@ MonoBehaviour:
   emptySound: {fileID: 8300000, guid: 4da84cea90b21ba47b0a7087fded7078, type: 3}
   bash: {fileID: 8300000, guid: e72ab011078599540b73f1bc4f9b84b5, type: 3}
   equipMag: {fileID: 8300000, guid: 99b5aa7d52b57d94296280d869c9e992, type: 3}
+  impact: {fileID: 0}
 --- !u!82 &6255525151881427066
 AudioSource:
   m_ObjectHideFlags: 0

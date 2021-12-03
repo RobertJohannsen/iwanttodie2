@@ -10,7 +10,7 @@ public class zombieAnimationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        callIdleAnimation();
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class zombieAnimationController : MonoBehaviour
     {
         if(!suspendAnim)
         {
-            if (!zCore.isMove) callIdleAnimation();
+            
 
             float topTierSpeedThres = ((Mathf.Clamp(zCore.speedTopBracket, 0, 100)) / 100) * zCore.speedinUse;
             if (zCore.currentSpeed > topTierSpeedThres)

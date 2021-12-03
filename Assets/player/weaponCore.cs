@@ -677,9 +677,9 @@ public class weaponCore : MonoBehaviour
             {
                 if (gunState == reState.no)
                 {
-                    if(obtusePump)
+                    if (obtusePump)
                     {
-                        if(hasPumped)
+                        if (hasPumped)
                         {
                             fireWeapon();
                             shootReady = false;
@@ -706,6 +706,10 @@ public class weaponCore : MonoBehaviour
 
             }
 
+        }
+        else 
+        {
+            gunAnimationCont.audioLib.playClick();
         }
     }
     public void fireWeapon()

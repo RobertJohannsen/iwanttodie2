@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using UnityEngine.SceneManagement;
 
 public class moveCont : MonoBehaviour
 {
@@ -376,6 +377,7 @@ public class moveCont : MonoBehaviour
         //Crouching
 
         if (Input.GetKeyDown(KeyCode.Escape))
+           // SceneManager.LoadScene(); put the scene code here , scenecood
             DisableCursor();
         if (Input.anyKeyDown)
             EnableCursor();

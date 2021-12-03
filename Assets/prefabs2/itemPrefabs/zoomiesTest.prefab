@@ -1335,7 +1335,7 @@ MonoBehaviour:
   fire: {fileID: 7893054545466042380}
   sfx: {fileID: 1529777166627198684}
   empty: {fileID: 844860100891290187}
-  weaponFire: {fileID: 8300000, guid: 1e3b2e818e3e93142b8cb5a88e653960, type: 3}
+  weaponFire: {fileID: 8300000, guid: 4da84cea90b21ba47b0a7087fded7078, type: 3}
   reloadEject: {fileID: 8300000, guid: e1e60c45187f48b43bb8f3676c85ceec, type: 3}
   reloadInsert: {fileID: 8300000, guid: 628bc0546ca8d5942bda99d7a2c364c1, type: 3}
   chargePull: {fileID: 8300000, guid: fbf261519d790c247a4a4fa0f2c0aad1, type: 3}
@@ -1343,6 +1343,7 @@ MonoBehaviour:
   emptySound: {fileID: 8300000, guid: 4da84cea90b21ba47b0a7087fded7078, type: 3}
   bash: {fileID: 8300000, guid: e72ab011078599540b73f1bc4f9b84b5, type: 3}
   equipMag: {fileID: 8300000, guid: 99b5aa7d52b57d94296280d869c9e992, type: 3}
+  impact: {fileID: 0}
 --- !u!82 &7893054545466042380
 AudioSource:
   m_ObjectHideFlags: 0

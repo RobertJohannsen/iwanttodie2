@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: droog
   weaponAnimator: {fileID: 8109948894074496051}
-  weaponMesh: {fileID: 8109948894074496049}
+  weaponMesh: {fileID: 8109948894074496049, guid: 67ec56420fe54e946a2506976363ef4a, type: 3}
   weaponBarrel: {fileID: 8109948895488135477}
   muzzleFlash: {fileID: 4911839267117896169, guid: 5bc2e829c2754ce42aba3ca7badc8559, type: 3}
   weaponCollider: {fileID: 3480767685419703477}
@@ -366,6 +366,7 @@ MonoBehaviour:
   emptySound: {fileID: 8300000, guid: 4da84cea90b21ba47b0a7087fded7078, type: 3}
   bash: {fileID: 8300000, guid: e72ab011078599540b73f1bc4f9b84b5, type: 3}
   equipMag: {fileID: 8300000, guid: 99b5aa7d52b57d94296280d869c9e992, type: 3}
+  impact: {fileID: 0}
 --- !u!82 &7893054545466042380
 AudioSource:
   m_ObjectHideFlags: 0

@@ -103,14 +103,14 @@ MonoBehaviour:
   isThrown: 0
   shotCount: 1
   baseAimConeAccuracy: 2
-  moveAimConeAccuracy: 10
+  moveAimConeAccuracy: 9
   ejectFrames: 5
   totalCycleTime: 6
   maxShotDistance: 100
   magCapacity: 35
   ammoPool: 35
   bashDuration: 100
-  weaponDamage: 20
+  weaponDamage: 50
   bashDistance: 2.5
   bashForce: 7
   reloadType: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
   emptySound: {fileID: 8300000, guid: 67cdff21386c32d4b99aa035a9abf598, type: 3}
   bash: {fileID: 8300000, guid: cbed6bd318674e6448080d3195410a3c, type: 3}
   equipMag: {fileID: 8300000, guid: 2503587d45832ae4a8bf302a847d9487, type: 3}
+  impact: {fileID: 0}
 --- !u!114 &6409565608585713700
 MonoBehaviour:
   m_ObjectHideFlags: 0

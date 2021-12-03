@@ -408,14 +408,14 @@ MonoBehaviour:
   isThrown: 0
   shotCount: 1
   baseAimConeAccuracy: 2
-  moveAimConeAccuracy: 10
+  moveAimConeAccuracy: 9
   ejectFrames: 5
   totalCycleTime: 6
   maxShotDistance: 100
   magCapacity: 35
   ammoPool: 35
   bashDuration: 100
-  weaponDamage: 20
+  weaponDamage: 50
   bashDistance: 2.5
   bashForce: 7
   reloadType: 0
@@ -471,6 +471,7 @@ MonoBehaviour:
   emptySound: {fileID: 8300000, guid: 67cdff21386c32d4b99aa035a9abf598, type: 3}
   bash: {fileID: 8300000, guid: cbed6bd318674e6448080d3195410a3c, type: 3}
   equipMag: {fileID: 8300000, guid: 2503587d45832ae4a8bf302a847d9487, type: 3}
+  impact: {fileID: 0}
 --- !u!114 &2099473270159028074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,7 +781,7 @@ BoxCollider:
   m_GameObject: {fileID: 4641299078258078273}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.16991332, y: 0.45759165, z: 2.048097}
   m_Center: {x: 0.06869601, y: 0.092222095, z: 0.5964092}
