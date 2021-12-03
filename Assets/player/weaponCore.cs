@@ -705,12 +705,17 @@ public class weaponCore : MonoBehaviour
                 }
 
             }
+            else
+            {
+                if (gunAnimationCont.audioLib)
+                {
+                    //gunAnimationCont.audioLib.playClick();
+                }
+
+            }
 
         }
-        else 
-        {
-            gunAnimationCont.audioLib.playClick();
-        }
+       
     }
     public void fireWeapon()
     {

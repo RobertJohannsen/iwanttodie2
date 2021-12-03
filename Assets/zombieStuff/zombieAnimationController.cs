@@ -19,16 +19,23 @@ public class zombieAnimationController : MonoBehaviour
         if(!suspendAnim)
         {
             
-
-            float topTierSpeedThres = ((Mathf.Clamp(zCore.speedTopBracket, 0, 100)) / 100) * zCore.speedinUse;
-            if (zCore.currentSpeed > topTierSpeedThres)
+            if(zCore.zombieAgent.velocity.magnitude > 0.3f)
             {
-                callSprintAnimation();
+                float topTierSpeedThres = ((Mathf.Clamp(zCore.speedTopBracket, 0, 100)) / 100) * zCore.speedinUse;
+                if (zCore.currentSpeed > topTierSpeedThres)
+                {
+                    callSprintAnimation();
+                }
+                else
+                {
+                    callcallRunAnimation();
+                }
             }
             else
             {
-                callcallRunAnimation();
+                callIdleAnimation();
             }
+          
         }
         
     }
