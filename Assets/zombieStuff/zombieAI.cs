@@ -161,8 +161,6 @@ public class zombieAI : MonoBehaviour
 
       
         currentSpeed = zombieAgent.velocity.magnitude;
-        Debug.Log(currentSpeed);
-
         isMove = currentSpeed < 2f ? false : true;
 
         if(!stunned)

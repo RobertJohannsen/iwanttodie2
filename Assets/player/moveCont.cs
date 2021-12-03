@@ -377,10 +377,13 @@ public class moveCont : MonoBehaviour
         //playerCam.transform.GetChild(0).gameObject.GetComponent<Camera>().fieldOfView = baseFOV + camZoomMod - camZoomedMod;
         //Crouching
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            SceneManager.LoadScene(0);
+        }
             // put the scene code here , scenecoood
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
-            DisableCursor();
+            
+           
         if (Input.anyKeyDown)
             EnableCursor();
         if (Input.GetKeyDown(KeyCode.LeftShift))
